@@ -9,6 +9,7 @@
 namespace App\Controller;
 
 
+use App\Security\VeryBadDesign;
 use App\Service\Greeting;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -20,10 +21,15 @@ class BlogController extends AbstractController
      * @var Greeting
      */
     private $greeting;
+    /**
+     * @var VeryBadDesign
+     */
+    private $veryBadDesign;
 
-    public function __construct(Greeting $greeting)
+    public function __construct(Greeting $greeting, VeryBadDesign $veryBadDesign)
     {
         $this->greeting = $greeting;
+        $this->veryBadDesign = $veryBadDesign;
     }
 
     /**
