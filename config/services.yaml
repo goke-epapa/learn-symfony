@@ -32,6 +32,6 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
-    app.greeting:
-        public: true
-        alias: App\Service\Greeting
+    App\Service\Greeting:
+        arguments:
+            $message: 'Hello from the service'
