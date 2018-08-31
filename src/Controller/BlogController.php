@@ -39,6 +39,7 @@ class BlogController extends AbstractController
      */
     public function index(Request $request)
     {
+        $this->get('app.greeting'); // Would fail if AbstractController is used
         return $this->render('base.html.twig', [
             'message' => $this->greeting->greet($request->get('name'))
         ]);

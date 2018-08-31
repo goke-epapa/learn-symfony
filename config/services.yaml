@@ -36,6 +36,6 @@ services:
     # please note that last definitions always *replace* previous ones
 
 # Binding can be done in defaults as well
-#    App\Service\Greeting:
-#        arguments:
-#            $message: '%hello_message%'
+    app.greeting:
+        public: true
+        alias: App\Service\Greeting
