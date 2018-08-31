@@ -39,3 +39,7 @@ services:
     app.greeting:
         public: true
         alias: App\Service\Greeting
+
+    App\Twig\AppExtension:
+        arguments:
+            $locale: '%locale%'

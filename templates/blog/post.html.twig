@@ -7,4 +7,12 @@
     <p>{{ post.text }}</p>
     <p>{{ post.date | date }}</p>
     <p> {{ post.price | price }}</p>
+    Here is the current locale {{ locale }}
+    {{ message }}
+
+    <p>ENV: {{ app.environment }}</p>
+    <p>User: {{ app.user }}</p>
+    <p>Request: {{ app.request }}</p>
+    <p>Session started: {{ app.session.isStarted }}</p>
+    <p>Debug {{ app.debug }}</p>
 {% endblock %}
