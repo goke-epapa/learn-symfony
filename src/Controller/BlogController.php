@@ -14,6 +14,9 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+/**
+ * @Route("/blog")
+ */
 class BlogController
 {
     /**
@@ -32,7 +35,7 @@ class BlogController
     }
 
     /**
-     * @Route("/", name="blog_index")
+     * @Route("/{name}", name="blog_index")
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
      * @throws \Twig_Error_Loader
@@ -48,5 +51,22 @@ class BlogController
         return new Response($this->twig->render('base.html.twig', [
             'message' => $this->greeting->greet($request->get('name'))
         ]));
+    }
+
+    /**
+     * @Route("/add", name="blog_add")
+     */
+    public function add()
+    {
+
+    }
+
+    /**
+     * @Route("/show/{id}", name="blog_show")
+     * @param $id
+     */
+    public function show($id)
+    {
+
     }
 }
