@@ -23,7 +23,11 @@ doctrine:
         mappings:
             App:
                 is_bundle: false
+                # Could also be XML or YAML
                 type: annotation
+                # Directory for entities
                 dir: '%kernel.project_dir%/src/Entity'
+                # Entity namespace prefix
                 prefix: 'App\Entity'
+                # Shorthand alias
                 alias: App
