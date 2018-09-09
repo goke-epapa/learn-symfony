@@ -21,10 +21,11 @@ Encore
         './node_modules/jquery/dist/jquery.slim.js',
         './node_modules/popper.js/dist/popper.min.js',
         './node_modules/bootstrap/dist/js/bootstrap.min.js',
-        './node_modules/holderjs/holder.min.js'
+        './node_modules/holderjs/holder.min.js',
     ])
     .addStyleEntry('css/app', [
-        './node_modules/bootstrap/dist/css/bootstrap.min.css'
+        './node_modules/bootstrap/dist/css/bootstrap.min.css',
+        './assets/css/app.css'
     ])
     //.addEntry('page1', './assets/js/page1.js')
     //.addEntry('page2', './assets/js/page2.js')
