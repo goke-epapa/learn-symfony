@@ -70,10 +70,39 @@ class MicroPostController
     public function index()
     {
         $html = $this->twig->render('micro_post/index.html.twig', [
-            'posts' => $this->microPostRepository->findAll()
+            'posts' => $this->microPostRepository->findBy([], ['time' => 'DESC'])
         ]);
 
         return new Response($html);
+    }
+
+    /**
+     * @Route("/edit/{id}", name="micro_post_edit")
+     * @param MicroPost $post
+     * @param Request   $request
+     *
+     * @throws \Twig_Error_Loader
+     * @throws \Twig_Error_Runtime
+     * @throws \Twig_Error_Syntax
+     * @return RedirectResponse|Response
+     */
+    public function edit(MicroPost $post, Request $request)
+    {
+        $form = $this->formFactory->create(MicroPostType::class, $post);
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()) {
+            $post->setTime(new \DateTime());
+            $this->entityManager->flush();
+
+            return new RedirectResponse($this->router->generate('micro_post_index'));
+        }
+
+        return new Response(
+            $this->twig->render('micro_post/add.html.twig', [
+                'form' => $form->createView()
+            ])
+        );
     }
 
     /**

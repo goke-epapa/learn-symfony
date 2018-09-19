@@ -6,5 +6,8 @@
     {% for post in posts %}
         <a href="{{ path('micro_post_post', {'id': post.id}) }}">View Post</a>
         {{ include('micro_post/raw-post.html.twig', {'post' : post}) }}
+        <small class="d-block text-right mt-3">
+            <a href="{{ path('micro_post_edit', {'id': post.id}) }}">Edit</a>
+        </small>
     {%  endfor %}
 {% endblock %}
