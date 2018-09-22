@@ -1,6 +1,11 @@
 {%  extends 'base.html.twig' %}
 {%  block body %}
-    <small class="d-block text-right mt-3">
+    {% for message in app.flashes('notice') %}
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+    {% endfor %}
+    <small class="d-block text-ri)ght mt-3">
         <a href="{{ path('micro_post_add') }}">Add New</a>
     </small>
     {% for post in posts %}
@@ -8,6 +13,7 @@
         {{ include('micro_post/raw-post.html.twig', {'post' : post}) }}
         <small class="d-block text-right mt-3">
             <a href="{{ path('micro_post_edit', {'id': post.id}) }}">Edit</a>
+            <a href="{{ path('micro_post_delete', {'id': post.id}) }}">Delete</a>
         </small>
     {%  endfor %}
 {% endblock %}
